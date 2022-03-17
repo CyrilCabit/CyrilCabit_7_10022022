@@ -6,6 +6,11 @@ function Comment(sequelize, DataTypes) {
             type: DataTypes.STRING
                 // allowNull defaults to true
         },
+        pseudo: {
+            type: DataTypes.STRING
+                // allowNull defaults to true
+        },
+
 
 
     }, {
@@ -14,6 +19,7 @@ function Comment(sequelize, DataTypes) {
     });
     commentModel.associate = function(db) {
         this.belongsTo(db.Post);
+        this.belongsTo(db.User);
 
     }
     return commentModel

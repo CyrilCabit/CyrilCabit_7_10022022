@@ -3,18 +3,18 @@ const express = require('express');
 const router = express.Router();
 
 
-const postCtrl = require('../controllers/post');
+const commentCtrl = require('../controllers/comment');
 const auth = require('../middleware/auth');
 
 //ajout de multer pour accepter le post de fichier
 const multer = require('../middleware/multer-config');
 
 //TOUTES LES ROUTES
-router.get('/', auth, postCtrl.getAllPosts);
-router.post('/', auth, multer, postCtrl.createPost);
-router.get('/:id', auth, postCtrl.getOnePost);
-router.put('/:id', auth, multer, postCtrl.modifyPost);
-router.delete('/:id', auth, postCtrl.deletePost);
+// router.get('/', auth, commentCtrl.getAllComments);
+router.post('/:id', auth, multer, commentCtrl.createComment);
+// router.get('/:id', auth, commentCtrl.getOneComment);
+// router.put('/:id', auth, multer, commentCtrl.modifyComment);
+// router.delete('/:id', auth, commentCtrl.deleteComment);
 // router.post('/:id/like', auth, postCtrl.likePost);
 
 
