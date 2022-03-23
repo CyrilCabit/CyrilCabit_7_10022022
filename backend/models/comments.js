@@ -6,10 +6,6 @@ function Comment(sequelize, DataTypes) {
             type: DataTypes.STRING
                 // allowNull defaults to true
         },
-        pseudo: {
-            type: DataTypes.STRING
-                // allowNull defaults to true
-        },
 
 
 

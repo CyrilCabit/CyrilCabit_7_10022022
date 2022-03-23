@@ -45,28 +45,17 @@ const Comment = db.Comment
 
 // CREATE UN POST (post)
 exports.createComment = (req, res, next) => {
-    console.log(req.body);
-    if (req.file) {
-        const comment = new Comment({
-            ...req.body,
+    // console.log(req.body);
 
-            //configuration de multer dans la route pour la gestion des images
-            image: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`
-        });
-        // console.log(req.body);
-        // console.log(req.file);
-        comment.save()
-            .then(() => res.status(201).json({ message: "Votre commentaire et l'image ont été publiés" }))
-            .catch(error => res.status(400).json({ error }));
-    } else {
-        const comment = new Comment({
-            ...req.body,
+    const comment = new Comment({
+        ...req.body,
+        UserId: req.auth.userId
 
-        });
-        comment.save()
-            .then(() => res.status(201).json({ message: "Votre commentaire a été publié" }))
-            .catch(error => res.status(400).json({ error }));
-    }
+    });
+    comment.save()
+        .then(() => res.status(201).json({ message: "Votre commentaire a été publié" }))
+        .catch(error => res.status(400).json({ error }));
+
 };
 
 
