@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
-import Signup from './pages/sign/Signup';
-import Signin from './pages/sign/Signin';
+import Signup from './pages/forms/Signup';
+import Signin from './pages/forms/Signin';
 import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
 
