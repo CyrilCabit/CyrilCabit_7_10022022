@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import style from './Forms.module.css'
 
 
@@ -15,9 +16,9 @@ function Signup() {
         placeholder="Email"></input>
         <input type="password" name="password" required
         placeholder="Password"></input>  
-        <button type="button" onClick={handleClick}>Sign in</button>    
+        <button type="button" onClick={handleClick}>Connexion</button>    
     </form>
-    <p className={style.switch_page}>Déjà inscrit ? <a href="">Connectez-vous !</a></p>
+    <p className={style.switch_page}>Déjà inscrit ? <Link to="/login">Connectez-vous !</Link></p>
 </div>);
 };
 

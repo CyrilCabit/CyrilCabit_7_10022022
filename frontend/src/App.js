@@ -1,15 +1,28 @@
 import logo from './logo.svg';
 import './App.css';
-import Signup from './pages/forms/Signup';
-import Signin from './pages/forms/Signin';
+import Signup from './pages/Signup';
+import Signin from './pages/Signin';
 import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
+import Home from './pages/home/Home';
+import Post from  './components/post/Post'
+import { Routes, Route } from "react-router-dom";
+
 
 function App() {
   return (
     <div>
       <Header/>
-      <Signin/>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="login" element={<Signin />} />
+        <Route path="signup" element={<Signup />} />
+        <Route path="newpost" element={<Post />} />
+
+      </Routes>
+
+      {/* <Post/>  */}
+     
       <Footer/>
     </div>
     

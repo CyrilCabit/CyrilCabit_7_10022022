@@ -21,14 +21,23 @@ footer ul{
 
 }
 
-footer ul li{
-    display: flex;
-    place-items: center;
-    padding: 15px 50px 15px 15px;
-    font-weight: bold;
-}
+
 
 footer ul li img {
     width: fit-content;
     height: 40px;
+}
+footer p{
+    color: rgb(253, 45, 1);
+    font-weight: bold;
+}
+footer p::first-letter{
+    color: black
+}
+
+
+footer a{
+    display: flex;
+    text-decoration: none;
+    
 }

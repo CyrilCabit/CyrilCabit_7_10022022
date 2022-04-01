@@ -1,18 +1,21 @@
 import style from './Footer.module.css'
+import { Link } from "react-router-dom";
 
 function Footer() {
     return (
     <footer>
         <img src="icon-above-font.png" alt="logo groupomania"></img>
         <ul>
-            <a href='#'><li>
-                <img src='icon.png'></img>
-                <p>Boîte à idées</p>
-            </li></a>
-            <a href='#'><li>
+            <li><Link to ="" >
+                    <img src='icon.png'></img>
+                    <p>Boîte à idées</p>
+                </Link>
+            </li>
+            <li><Link to ="" >
                 <img src='icon.png'></img>
                 <p>Le mot du Président</p>
-            </li></a>
+                </Link>
+            </li>
         </ul>
     </footer>
         
