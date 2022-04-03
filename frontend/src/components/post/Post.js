@@ -12,5 +12,18 @@ function NewPost() {
         
     )
 }
+function GetOnePost() {
+    return (
+        <div className={style.post}>
+            <h1>Titre</h1>
+            <p>L'image ou le texte s'afficheront ici</p>   
+            <p> le bouton like</p>
+            <textarea maxlength= "20" placeholder='Commentez'></textarea>
+            <p> le bouton like</p>
+        </div>
+        
+        
+    )
+}
 
-export default NewPost
+export {GetOnePost,NewPost} 

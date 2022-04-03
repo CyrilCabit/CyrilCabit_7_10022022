@@ -4,11 +4,16 @@
     } */
 
 .form_sign {
-    margin:20px;
+    width: 50%;
+    margin: 50px auto;
+    padding: 20px;
+    box-shadow: 10px 0px 30px;
+    height: fit-content;
+    align-self: center;
 
 }
 .switch_page {
-    margin: 45px;
+    padding: 45px;
     color: rgb(253, 45, 1);
     font-weight: bold;
 }
@@ -21,6 +26,7 @@ form {
 h1{
     font-size: 1.5em;
     text-align: center;
+    padding-top: 20px;
 }
 
 

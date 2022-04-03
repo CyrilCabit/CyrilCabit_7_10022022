@@ -14,6 +14,10 @@ function Signup() {
        minlength="4" maxlength="10" placeholder="Pseudo"></input>
        <input type="email" name="email" required
         placeholder="Email"></input>
+        <input type="name" name="name" required
+        placeholder="Nom"></input>
+        <input type="lastname" name="lastname" required
+        placeholder="Prénom"></input>
         <input type="password" name="password" required
         placeholder="Password"></input>  
         <button type="button" onClick={handleClick}>Connexion</button>    

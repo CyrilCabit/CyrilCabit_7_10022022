@@ -1,3 +1,18 @@
-button {
-    background-color: brown;
+textarea {
+    width: 90%;
+    height: 50px;
+}
+.post{
+    width: 50%;
+    text-align: center;
+    
+    border: 2px black;
+    margin: 50px auto;
+    padding: 10px;
+    box-shadow: 5px 0px 20px
+
+}
+
+.post>p{
+    border: 1px black;
 }

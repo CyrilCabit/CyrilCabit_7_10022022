@@ -1,33 +1,20 @@
+import Signin from '../Signin'
 import style from './Home.module.css'
 
-function Main() {
+
+function Home() {
     return (
        
-<div>
-    
-    <h1>Forum des Employés</h1>
-    <div className='newPost'> (+) créer un nouvelle publication</div>
-    <div className='lastPosts'>Voir les dernières publications
-        <div className='allPosts'>voir toutes les publications</div>
+<div className={style.homepage}>
+    <div className= {style.accueil}>
+        <img src="icon-above-font.png" alt='logo groupomania '></img>
+      
     </div>
-    <label for='search_bar'>
-        <input type="search" name='search' ></input>
-        <button>Rechercher</button>
-  
-    </label>
-
-
-  
-
-
-
-
-
-
-
-
-
+    
+    <Signin/>
 </div>)
+
+
 };
 
-export default Main
+export default Home

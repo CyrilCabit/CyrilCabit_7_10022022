@@ -4,26 +4,29 @@ import Signup from './pages/Signup';
 import Signin from './pages/Signin';
 import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
+import Session from './pages/Session';
 import Home from './pages/home/Home';
-import Post from  './components/post/Post'
+import {NewPost, GetOnePost} from  './components/post/Post'
 import { Routes, Route } from "react-router-dom";
 
 
 function App() {
   return (
     <div>
-      <Header/>
+      
+      {/* <Header/> */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="login" element={<Signin />} />
         <Route path="signup" element={<Signup />} />
-        <Route path="newpost" element={<Post />} />
+        <Route path="post" element={<NewPost />} />
+        <Route path="session" element={<Session />} />
 
       </Routes>
 
       {/* <Post/>  */}
      
-      <Footer/>
+      {/* <Footer/> */}
     </div>
     
      

@@ -1,0 +1,29 @@
+.search_bar > input {   
+    width: 100%;
+    margin: 10px 0 10px 0;
+    padding: 10px;
+    border-radius: 25px 0px 0px 25px;
+    border-style: none;
+    box-shadow: 0px 3px 6px;
+}
+
+.search_bar{    
+    display: flex;
+    width: 50%;
+    height: 80px;
+    align-items: center;
+}
+
+.search_bar > button{
+    
+    width: 25%;
+    margin: 10px 0 10px 0;
+    padding: 10px;
+    border-radius: 0px 25px 25px 0px;
+    align-items: center;
+    font-size: larger;
+    font-weight: bold;
+    color: #fff;
+    background-color:#fd2d01;
+    border-style: none;
+}
