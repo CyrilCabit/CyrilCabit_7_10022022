@@ -1,17 +1,25 @@
 import React from 'react'
 import style from './Header.module.css'
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import logo from "../../assets/icon-left-font.png";
+
 
 function Header() {
+
+    const navigate = useNavigate();
+    const logout = ()=>{
+        localStorage.removeItem("token") 
+        navigate('/login')       
+    }
+
+
     return (
         <header>
-            <img src="icon-left-font.png" alt='logo aligné groupomania '></img>
+            <img src={logo} alt='logo aligné groupomania '></img>
             <nav>
                 <ul>
-                    <li><Link to="/signup">Créer un compte</Link></li>
-                    <li><Link to="/login">S'identifier</Link></li>
-                    <li><Link to="#">Se déconnecter</Link></li>
-                    <li><Link to="#">Supprimer son compte</Link></li>                         
+                    <li><button onClick={logout}>Se déconnecter</button></li>
+                    <li><button>Supprimer son compte</button></li>                         
                 </ul>
             </nav>
         </header>
@@ -19,5 +27,6 @@ function Header() {
         
     )
 }
+
 
 export default Header

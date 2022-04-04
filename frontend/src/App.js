@@ -4,6 +4,7 @@ import Signup from './pages/Signup';
 import Signin from './pages/Signin';
 import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
+import Connect from './components/Connect';
 import Session from './pages/Session';
 import Home from './pages/home/Home';
 import {NewPost, GetOnePost} from  './components/post/Post'
@@ -16,11 +17,11 @@ function App() {
       
       {/* <Header/> */}
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="login" element={<Signin />} />
+        {/* <Route path="/" element={<Home />} /> */}
+        <Route path="login" element={<Home />} />
         <Route path="signup" element={<Signup />} />
-        <Route path="post" element={<NewPost />} />
-        <Route path="session" element={<Session />} />
+        {/* <Route path="post" element={<NewPost />} /> */}
+        <Route path="/" element={<Connect><Session /></Connect> } />
 
       </Routes>
 

@@ -20,7 +20,7 @@ function Signup() {
         placeholder="Prénom"></input>
         <input type="password" name="password" required
         placeholder="Password"></input>  
-        <button type="button" onClick={handleClick}>Connexion</button>    
+        <button type="button" onClick={handleClick}>S'inscrire</button>   
     </form>
     <p className={style.switch_page}>Déjà inscrit ? <Link to="/login">Connectez-vous !</Link></p>
 </div>);

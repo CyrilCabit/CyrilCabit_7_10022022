@@ -1,11 +1,12 @@
 import axios from 'axios'
 
-function login() {
+function login(email, password) {
         
-    axios.post('http://localhost:3000/api/auth/login',{"email": "gestion.cabit@gmail.com",
-    "password": "test"
+    return axios.post('http://localhost:3000/api/auth/login',{
+        "email": email,
+        "password": password
     })
-    .then(response => console.log(response))
+    
  }
 
 
