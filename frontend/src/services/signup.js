@@ -1,15 +1,17 @@
 import axios from 'axios'
 
-function signup() {
+
+function signup(email, pseudo, firstName, lastName, password) {
+
         
-    axios.post('http://localhost:3000/api/auth/signup',{ 
-        "email": "cabitcyril@yahoo.fr",    
-        "pseudo": "cylou",
-        "firstName": "testprénom",
-        "lastName": "testnom",
-        "password": "test"
+    return axios.post('http://localhost:3000/api/auth/signup',{ 
+        "email": email,    
+        "pseudo": pseudo,
+        "firstName": firstName,
+        "lastName": lastName,
+        "password": password
         })
-    .then(response => console.log(response))
+  
  }
 
 

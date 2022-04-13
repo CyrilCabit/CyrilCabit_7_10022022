@@ -13,6 +13,7 @@ function Post(sequelize, DataTypes) {
             type: DataTypes.STRING
                 // allowNull defaults to true
         },
+        
 
 
 
@@ -22,6 +23,7 @@ function Post(sequelize, DataTypes) {
     });
     postModel.associate = function(db) {
         this.belongsTo(db.User);
+        this.hasMany(db.Comment, {onDelete: "cascade"});
 
     }
     return postModel

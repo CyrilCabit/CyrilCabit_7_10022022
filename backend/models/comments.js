@@ -7,8 +7,6 @@ function Comment(sequelize, DataTypes) {
                 // allowNull defaults to true
         },
 
-
-
     }, {
 
         // Other model options go here

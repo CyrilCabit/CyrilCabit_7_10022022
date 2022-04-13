@@ -1,4 +1,4 @@
-import style from './Forms.module.css';
+import style from '../styles/Forms.module.css';
 import { Link, useNavigate } from "react-router-dom";
 import {login} from '../services/login';
 import React, { useState } from 'react';
@@ -17,9 +17,7 @@ function Signin() {
         })
     }
 
-
-
-    //  login()
+   
     return (
        
 <div className={style.form_sign}>
@@ -32,24 +30,8 @@ function Signin() {
         <button type="submit">Connexion</button>   
     </form>
     <p className={style.switch_page}>Pas encore inscrit ? <Link to= "/signup">Créez votre compte</Link></p>
-
-    
-
-
-
-
-
-
-
-
-
 </div>)
 };
-
-
-
-
-
 
 
 export default Signin

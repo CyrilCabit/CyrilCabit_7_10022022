@@ -1,11 +1,12 @@
 import Header from '../../components/header/Header'
 import Footer from '../../components/footer/Footer'
-import Signin from '../Signin'
-import style from './Home.module.css'
+import Signin from '../SigninForm'
+import style from '../../styles/Home.module.css'
 import logo from '../../assets/icon-above-font.png'
+import Signup from '../SignupForm'
 
 
-function Home() {
+function HomeSignup() {
     return (
 <div> 
     {/* <Header/>      */}
@@ -15,7 +16,7 @@ function Home() {
       
         </div>
     
-    <Signin/>
+    <Signup/>
     </div> 
     {/* <Footer/> */}
 </div>)
@@ -23,4 +24,4 @@ function Home() {
 
 };
 
-export default Home
+export default HomeSignup

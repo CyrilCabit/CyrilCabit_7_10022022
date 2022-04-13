@@ -12,6 +12,17 @@ img {
 .accueil{
     margin: 10px;
     width: 35%;
+    align-self: center;
+}
+
+.session_page{
+    display: flex;
+    flex-wrap: wrap;
+    place-items: center;
+}
+
+.post_list{
+    width: 50%;
 }
 
 

@@ -1,33 +1,27 @@
-import logo from './logo.svg';
 import './App.css';
-import Signup from './pages/Signup';
-import Signin from './pages/Signin';
-import Header from './components/header/Header';
-import Footer from './components/footer/Footer';
 import Connect from './components/Connect';
-import Session from './pages/Session';
-import Home from './pages/home/Home';
-import {NewPost, GetOnePost} from  './components/post/Post'
+import Session from './pages/Home';
+import HomeSignin from './pages/home/HomeSignin';
+import HomeSignup from './pages/home/HomeSignup';
 import { Routes, Route } from "react-router-dom";
-
+import Comment from './pages/Comment'
 
 function App() {
   return (
     <div>
       
-      {/* <Header/> */}
+
       <Routes>
-        {/* <Route path="/" element={<Home />} /> */}
-        <Route path="login" element={<Home />} />
-        <Route path="signup" element={<Signup />} />
-        {/* <Route path="post" element={<NewPost />} /> */}
+     
+        <Route path="login" element={<HomeSignin />} />
+        <Route path="signup" element={<HomeSignup />} />
         <Route path="/" element={<Connect><Session /></Connect> } />
+        <Route path="post/:id" element={<Comment/>} />
+        
+        
 
       </Routes>
 
-      {/* <Post/>  */}
-     
-      {/* <Footer/> */}
     </div>
     
      

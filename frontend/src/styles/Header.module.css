@@ -3,6 +3,20 @@ header {
     justify-content: space-between;
     font-size: small;
 }
+header button {
+    display: flex; 
+    width: 100%;
+    margin: 10px auto 10px auto;
+    padding: 20px;
+    border-radius: 40px;
+    align-items: center;
+    font-size: larger;
+    font-weight: bold;
+    color: #fff;
+    background-color: rgb(253, 45, 1);
+    border-style: none;
+
+}
 header a {
     text-decoration: none;
     font-weight: bold;
@@ -12,6 +26,7 @@ header img{
     width: 400px;
     height: 100px;
     object-fit: cover;
+    align-self: center;
 }
 header p {
     margin: 0;
@@ -25,12 +40,8 @@ header ul {
 }
 
 header li {
-    padding: 10px;
-    margin: 10px;
-    list-style-type: none;
-    box-shadow: 10px 2px 12px lightsteelblue;
-    border-radius: 50%;
-   
+    margin: 30px;
+    list-style-type: none;    
     
 }
 

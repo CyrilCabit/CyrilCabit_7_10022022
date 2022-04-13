@@ -1,0 +1,20 @@
+.post{
+    width: 34%;
+    margin: auto;
+    border: solid;
+}
+
+.post_info{
+    background-color: aquamarine;
+}
+
+.post_body{
+    background-color: blueviolet;
+}
+
+.new_comment{
+
+    background-color: aquamarine;
+    display: flex;
+    flex-direction: column;
+}

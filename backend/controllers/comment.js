@@ -1,10 +1,13 @@
 const { comment } = require('../app');
 const db = require('../models/index');
 const Comment = db.Comment
+const Post = db.Post;
+const User =db.User;
 
 //VOIR UN COMMENTAIRE PRECIS
 exports.getOneComment = (req, res, next) => {
     Comment.findOne({
+        include: User,
         where: {
             id: req.params.id
         }
@@ -23,6 +26,10 @@ exports.getOneComment = (req, res, next) => {
 //VOIR TOUS LES COM 
 exports.getAllComments = (req, res, next) => {
     Comment.findAll({
+        include: User,
+        where: {
+            id: req.params.PostId
+        }
 
     }).then(
         (comment) => {
@@ -53,7 +60,10 @@ exports.createComment = (req, res, next) => {
 
     });
     comment.save()
-        .then(() => res.status(201).json({ message: "Votre commentaire a été publié" }))
+        .then((data) => { User.findOne({
+            where: {id: req.auth.userId}}) 
+            .then((user)=> res.status(201).json({ message: "Votre commentaire a été publié" , comment: {...data.get({plain:true}), User:user }}) )
+             })
         .catch(error => res.status(400).json({ error }));
 
 };

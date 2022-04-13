@@ -1,11 +1,16 @@
 const { post } = require('../app');
 const db = require('../models/index');
+const Comment = db.Comment;
 const Post = db.Post;
+const User =db.User;
 const fs = require('fs');
+
 
 //VOIR UN POST PRECIS
 exports.getOnePost = (req, res, next) => {
     Post.findOne({
+        include: [{model: User}, {model: Comment, include: User, separate: true, order:[["updatedAt","DESC"]]}],
+  
         where: {
             id: req.params.id
         }
@@ -23,7 +28,9 @@ exports.getOnePost = (req, res, next) => {
 };
 //VOIR TOUS LES POSTS 
 exports.getAllPosts = (req, res, next) => {
-    Post.findAll({
+    Post.findAll({  
+        include: {model: User},
+        order:[["updatedAt","DESC"]]
 
     }).then(
         (post) => {
@@ -36,6 +43,7 @@ exports.getAllPosts = (req, res, next) => {
             });
         }
     );
+    
 };
 
 
@@ -56,7 +64,16 @@ exports.createPost = (req, res, next) => {
         // console.log(req.body);
         // console.log(req.file);
         post.save()
-            .then(() => res.status(201).json({ message: "Le post et l'image ont été envoyés" }))
+            .then((data) => { User.findOne(
+                {
+                    where: {
+                        id: req.auth.userId
+                    }
+                }
+            )
+            .then((user)=>res.status(201).json({ message: "Le post et l'image ont été envoyés", post:{...data.get({plain:true}), User:user} }))
+            
+            })
             .catch(error => res.status(400).json({ error }));
     } else {
         const post = new Post({
@@ -64,7 +81,15 @@ exports.createPost = (req, res, next) => {
             UserId: req.auth.userId
         });
         post.save()
-            .then(() => res.status(201).json({ message: "Le post a été envoyé" }))
+            .then((data) => { User.findOne(
+                {
+                    where: {
+                        id: req.auth.userId
+                    }
+                }
+            )
+            .then((user)=>res.status(201).json({ message: "Le post a été envoyé", post:{...data.get({plain: true}), User:user }}))
+            })
             .catch(error => res.status(400).json({ error }));
     }
 };
@@ -102,7 +127,8 @@ exports.deletePost = (req, res, next) => {
         .then((postToDelete) => {
             console.log(postToDelete);
             if (!postToDelete) return res.status(401).json({ message: ` Le Post numéro ${req.params.id} est introuvable ou vous n'êtes pas autorisé à supprimer ce post` })
-            if (postToDelete.image) {
+            Comment.destroy({where: {PostId: req.params.id }})
+            .then(()=>{if (postToDelete.image) {
                 const filename = postToDelete.image.split('/images/')[1];
                 fs.unlink(`images/${filename}`, () => {
                     Post.destroy({ where: { id: req.params.id, UserId: req.auth.userId } })
@@ -115,7 +141,8 @@ exports.deletePost = (req, res, next) => {
                     message: ` Le Post numéro ${req.params.id} a été supprimé !`
                 })
 
-            }
+            }})
+            
 
         })
 
