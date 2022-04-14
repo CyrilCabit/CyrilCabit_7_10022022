@@ -72,8 +72,17 @@ function Comment() {
 
     <Header/>
         {post?<div className={style.session_page}>
-        <button onClick={clearPost}>supprimer</button>
-            <div>{post.title}</div>
+        
+        <div className={style.post_body}>
+            <div className={style.post_header}>Publication n° {post.id} par {post.User.pseudo}</div>
+            <div className={style.post_title}>{post.title}</div>
+            <div className={style.post_text}>{post.text}</div>
+            <div className={style.post_owner}>
+            <button /*onClick={changePost}*/>modifier mon post</button>
+            <button onClick={clearPost}>supprimer mon post</button>
+            </div>
+            
+        </div>
             <CommentForm addComment={addComment} postId= {post.id}/>
             <CommentList pseudo ={post.User.pseudo} comments={comments} />
         </div>:<></>}

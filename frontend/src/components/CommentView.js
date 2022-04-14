@@ -1,9 +1,16 @@
 //COMPOSANT QUI DEFINIT LE FORMAT D'UN COM
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import style from '../styles/Comment.module.css'
 
 
 function CommentView(props) {
+
+    const {id} = useParams();
+
+    function clearComment() {
+        
+        
+    }
     return (
         <div className={style.comment} >
             <div className={style.comment_info}>
@@ -13,9 +20,9 @@ function CommentView(props) {
             <div className={style.comment_body}>            
                 <p>{props.text}</p>                   
             </div>  
-            <div className={style.comment_react}>
-              
-                <button><Link to="/">...</Link></button>
+            <div className={style.comment_react}>              
+                <button /*onClick={changeComment}*/>modifier mon commentaire</button>
+                <button onClick={clearComment}>supprimer mon commentaire</button>
             </div>      
         </div>
         

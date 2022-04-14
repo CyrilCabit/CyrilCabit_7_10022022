@@ -1,7 +1,7 @@
 //COMPOSANT QUI DEFINIT LE FORMAT D'UN POST
 import style from '../styles/Post.module.css'
-import { Link, useNavigate } from "react-router-dom";
-import {deletePost} from "../services/deletePost"
+import { Link } from "react-router-dom";
+
 
 function PostView(props) {
 
@@ -17,7 +17,6 @@ function PostView(props) {
             </div>
             <div className={style.post_body}>
                 <h2>{props.title}</h2>
-                <img src={props.image} ></img>
                 <p>{props.text}</p>   
                 
             </div>
