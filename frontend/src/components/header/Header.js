@@ -9,6 +9,7 @@ import { deleteAccount } from '../../services/deleteAccount';
 function Header(props) {
     const id = props.id
     const navigate = useNavigate();
+    
     const logout = ()=>{
         localStorage.removeItem("token") 
         localStorage.removeItem("pseudo")
@@ -27,13 +28,12 @@ function Header(props) {
 
     return (
         <header>
-            <img src={logo} alt='logo aligné groupomania '></img>
+            <img src={logo} alt='logo groupomania vertical'></img>
             <nav>
                 <ul>
                     <li><button onClick={home}>Accueil</button></li>
-                    <li><button onClick={logout}>
-                        Se déconnecter</button></li>
-                    <li><button onClick={handleDelete}>Supprimer son compte</button></li>                         
+                    <li><button onClick={logout}>({localStorage.getItem('pseudo')})  Se déconnecter</button></li>
+                    <li><button onClick={handleDelete}>Supprimer le compte</button></li>                         
                 </ul>
             </nav>
         </header>

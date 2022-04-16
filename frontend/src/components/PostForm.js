@@ -23,9 +23,9 @@ function PostForm(props) {
     }
     return (
         <form onSubmit={submit} className={style.new_post}>
-            <label for="title">Créer une nouvelle publication</label> 
-            <input type="text" name="title" required onChange ={(e)=>setTitle(e.target.value)} value= {title} placeholder="Titre"  minlength="2"  size="10"></input>
-            <textarea name="text" required onChange ={(e)=>setText(e.target.value)} value= {text}maxLength= "150" placeholder="Ecrivez votre publication"></textarea>
+            <label htmlFor="title">Créer une nouvelle publication</label> 
+            <input type="text" name="title" required onChange ={(e)=>setTitle(e.target.value)} value= {title} placeholder="Titre"  minLength="2"  size="10"></input>
+            <textarea name="text" required onChange ={(e)=>setText(e.target.value)} value= {text} placeholder="Ecrivez votre publication"></textarea>
             <button type='submit'>POSTER</button>
         </form>
         

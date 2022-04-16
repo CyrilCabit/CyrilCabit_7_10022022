@@ -66,9 +66,9 @@ exports.deleteAccount = async (req, res ,next) => {
     const userId = req.auth.userId;
 
 
-    await Comment.destroy({ where: {UserId: req.auth.userId}})
-    await Post.destroy({where:{UserId: req.auth.userId}})
-    await User.destroy({where:{id: req.auth.userId}})
+    await Comment.destroy({ where: {UserId: userId}})
+    await Post.destroy({where:{UserId: userId}})
+    await User.destroy({where:{id: userId}})
 
     return res.status(200).json({message: 'Le compte a été supprimé'})
 }

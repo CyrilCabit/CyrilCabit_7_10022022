@@ -142,7 +142,7 @@ function updateComment(text,id) {
             {edit?<div>
                 <form className={style.hidden_form} onSubmit={handleUpdate} >
                 <label htmlFor="title">MODIFIER UN POST</label> 
-                <input type="text" name="title" required onChange ={(e)=>setTitle(e.target.value)} value= {title}  placeholder="Titre"  minlength="2"  size="10"></input>
+                <input type="text" name="title" required onChange ={(e)=>setTitle(e.target.value)} value= {title}  placeholder="Titre"  minLength="2"  size="10"></input>
                 <textarea name="text" required onChange ={(e)=>setText(e.target.value)}value= {text}  placeholder="Modifier votre publication"></textarea>
             <button type='submit'>POSTER</button>
             <button onClick={cancelModif}type='button'>ANNULER</button>
