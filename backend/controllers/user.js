@@ -5,6 +5,8 @@ const jwt = require('jsonwebtoken');
 
 const db = require('../models/index');
 const User = db.User
+const Comment = db.Comment
+const Post = db.Post
 
 
 
@@ -42,12 +44,13 @@ exports.login = (req, res, next) => {
                     if (!valid) {
                         return res.status(401).json({ error: 'Mot de passe incorrect !' });
                     }
-                    console.log("-----------------------------------USER CONTROLLER------------------------------------");
-                    console.log(user);
+                    // console.log("-----------------------------------USER CONTROLLER------------------------------------");
+                    // console.log(user);
                     //creation de token aléatoires
                     res.status(200).json({
                         userId: user.id,
-                        token: jwt.sign({ userId: user.id },
+                        pseudo: user.pseudo,
+                        token: jwt.sign({ userId: user.id, isAdmin: user.pseudo == 'admin' },
                             process.env.TOKEN_USER, { expiresIn: '24h' }
                         )
                     });
@@ -56,3 +59,16 @@ exports.login = (req, res, next) => {
         })
         .catch(error => res.status(500).json({ error }));
 };
+
+
+// SUPPRESSION D'UN COMPTE
+exports.deleteAccount = async (req, res ,next) => {
+    const userId = req.auth.userId;
+
+
+    await Comment.destroy({ where: {UserId: req.auth.userId}})
+    await Post.destroy({where:{UserId: req.auth.userId}})
+    await User.destroy({where:{id: req.auth.userId}})
+
+    return res.status(200).json({message: 'Le compte a été supprimé'})
+}

@@ -13,6 +13,7 @@ function Signin() {
         login(email, password)
         .then((res)=>{
             localStorage.setItem("token", res.data.token)
+            localStorage.setItem("pseudo", res.data.pseudo)
             navigate('/')
         })
     }

@@ -48,10 +48,6 @@ exports.getAllPosts = (req, res, next) => {
 
 
 
-
-
-
-
 // CREATE UN POST (post)
 exports.createPost = (req, res, next) => {
     if (req.file) {
@@ -123,7 +119,34 @@ exports.modifyPost = (req, res, next) => {
 // DELETE UN POST (delete)
 exports.deletePost = (req, res, next) => {
 
-    Post.findOne({ where: { id: req.params.id, UserId: req.auth.userId } })
+    if (req.auth.isAdmin){
+
+        Post.findOne({ where: { id: req.params.id } })
+        .then((postToDelete) => {
+            console.log(postToDelete);
+            if (!postToDelete) return res.status(401).json({ message: ` Le Post numéro ${req.params.id} est introuvable ou vous n'êtes pas autorisé à supprimer ce post` })
+            Comment.destroy({where: {PostId: req.params.id }})
+            .then(()=>{if (postToDelete.image) {
+                const filename = postToDelete.image.split('/images/')[1];
+                fs.unlink(`images/${filename}`, () => {
+                    Post.destroy({ where: { id: req.params.id } })
+                    res.status(200).json({ message: ` Le Post numéro ${req.params.id} et l'image ont été supprimés !` })
+                })
+
+            } else {
+                Post.destroy({ where: { id: req.params.id } })
+                res.status(200).json({
+                    message: ` Le Post numéro ${req.params.id} a été supprimé !`
+                })
+
+            }})
+            
+
+        })
+    }
+
+    else{
+        Post.findOne({ where: { id: req.params.id, UserId: req.auth.userId } })
         .then((postToDelete) => {
             console.log(postToDelete);
             if (!postToDelete) return res.status(401).json({ message: ` Le Post numéro ${req.params.id} est introuvable ou vous n'êtes pas autorisé à supprimer ce post` })
@@ -145,6 +168,10 @@ exports.deletePost = (req, res, next) => {
             
 
         })
+
+    }
+
+    
 
 
 

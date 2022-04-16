@@ -1,14 +1,26 @@
 //COMPOSANT QUI DEFINIT LE FORMAT D'UN COM
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import style from '../styles/Comment.module.css'
+import { deleteComment } from '../services/deleteComment'
+import { isOwner } from "../services/owner";
 
 
 function CommentView(props) {
 
-    const {id} = useParams();
+    function changeComment() {
+        props.change(props.id)
+        
+    }
 
     function clearComment() {
-        
+        if (window.confirm('Voulez vous vraiment supprimer ce commentaire ?')== true) {
+            deleteComment(props.id)
+            .then(()=> props.delete(props.id))
+            .catch((err)=>(console.log(err)))
+        }
+        else{
+            console.log('action annulée');
+        }
         
     }
     return (
@@ -21,8 +33,8 @@ function CommentView(props) {
                 <p>{props.text}</p>                   
             </div>  
             <div className={style.comment_react}>              
-                <button /*onClick={changeComment}*/>modifier mon commentaire</button>
-                <button onClick={clearComment}>supprimer mon commentaire</button>
+            {isOwner(props.pseudo)?<button onClick={changeComment}>modifier mon commentaire</button>:<></>}
+            {isOwner(props.pseudo, true)?<button onClick={clearComment}>supprimer mon commentaire</button>:<></>}
             </div>      
         </div>
         

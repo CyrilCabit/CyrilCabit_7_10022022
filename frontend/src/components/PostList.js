@@ -8,7 +8,7 @@ function PostList(props) {
         return (
             <>
                 {props.posts.map((post, id) => (
-                    <PostView id={post.id} title={post.title} pseudo={post.User.pseudo} text={post.text} image={post.User.image} date={post.updatedAt}/>
+                    <PostView key= {id} id={post.id} title={post.title} pseudo={post.User.pseudo} text={post.text} image={post.User.image} date={post.updatedAt}/>
                 ))}
             </>
         )

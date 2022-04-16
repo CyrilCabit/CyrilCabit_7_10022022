@@ -22,8 +22,8 @@ function PostView(props) {
             </div>
             
             <div className={style.post_react}>
-                <button>J'aime</button>
-                <button><Link to={`/post/${props.id}`}>réagir</Link></button>
+                {/* <button>J'aime</button> */}                
+                <button><Link to={`/post/${props.id}`}>voir les commentaires</Link></button>
                 
             </div>
             

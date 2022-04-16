@@ -20,7 +20,7 @@ function Home() {
         // console.log(post);
         const allPosts = posts;
         
-        allPosts.push(post)
+        allPosts.unshift(post)
         setPosts([...allPosts])
 
     }

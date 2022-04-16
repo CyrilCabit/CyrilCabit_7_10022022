@@ -37,7 +37,7 @@
 
 /* style pour les commentaires */
 .comment{
-    width: 25%;
+    width: 40%;
     text-align: center;    
     border: 2px black;
     margin: 50px auto;
@@ -69,5 +69,11 @@
 .comment_react button{
     width: 33%;
     
+}
+
+.hidden_form{
+    display: flex;
+    flex-direction: column;
+    background-color: aquamarine;
 }
 

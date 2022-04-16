@@ -96,11 +96,19 @@ exports.modifyComment = (req, res, next) => {
 
 // DELETE UN COMMENTAIRE (delete)
 exports.deleteComment = (req, res, next) => {
-
-    Comment.findOne({ where: { id: req.params.id, UserId: req.auth.userId } })
+    if (req.auth.isAdmin) {
+        Comment.destroy({ where: { id: req.params.id } })
+            res.status(200).json({
+                message: ` Le commentaire numéro ${req.params.id} a été supprimé !`
+            })
+        
+    }
+    else{
+        Comment.findOne({ where: { id: req.params.id, UserId: req.auth.userId } })
         .then((commentToDelete) => {
 
-            if (!commentToDelete) return res.status(401).json({ message: ` Le commentaire numéro ${req.params.id} est introuvable ou vous n'êtes pas autorisé à supprimer ce post` })
+            if (!commentToDelete) 
+            return res.status(401).json({ message: ` Le commentaire numéro ${req.params.id} est introuvable ou vous n'êtes pas autorisé à supprimer ce post` })
 
             Comment.destroy({ where: { id: req.params.id, UserId: req.auth.userId } })
             res.status(200).json({
@@ -108,6 +116,9 @@ exports.deleteComment = (req, res, next) => {
             })
         })
         .catch(error => res.status(400).json({ error }));
+
+    }
+    
 
 
 };
