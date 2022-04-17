@@ -36,7 +36,8 @@ header p {
 }
 
 header ul {
-    display:flex
+    display:flex;
+    align-items: center;
 }
 
 header li {
@@ -52,37 +53,3 @@ header li::first-letter{
 header p::first-letter{
     color: black
 }
-/* .hidden_block {
-    display: flex;
-    flex-direction: column;
-    box-shadow: 14px 15px 28px black;
-    padding: 0;
-   
-
-    
-}
-.see_more:hover {
-    display: block;
-}
-.see_more {
-    margin: 10px;
-    padding: 10px;
-    border-bottom: 1px solid black;
-    border-top: 1px solid black;
-    font-weight: bold;
-    color: rgb(253, 45, 1);  
-}
-.see_more:first-letter {
-    color: black
-    
-}
-
-.hidden_block li {
-    
-    margin: 10px;
-    list-style-type: none;
-    border-bottom: none;
-    border-top: none;  
-    
-}
- */

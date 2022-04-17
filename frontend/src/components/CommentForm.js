@@ -55,7 +55,7 @@ function update() {
 
     return (
         <form onSubmit={submit} className={style.new_comment}>
-            <label for="title">Commenter cette publication</label> 
+            <label htmlFor="title">Commenter cette publication</label> 
             <textarea name="text" required onChange ={(e)=>setText(e.target.value)} value= {text}maxLength= "150" placeholder="Commentez"></textarea>
             <button type='submit'>PUBLIER</button>
         </form>

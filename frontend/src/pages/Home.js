@@ -51,9 +51,6 @@ function Home() {
         
     <h1>Forum des Employés</h1>
     
-    <div className='lastPosts'>Voir les 3 publications les plus récentes</div> 
-    <div className='allPosts'>voir toutes les publications</div>
- 
      <div className={style.session_page}>
         <PostForm addPost={addPost} />
         <PostList posts={posts} />

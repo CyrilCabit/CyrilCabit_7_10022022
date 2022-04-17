@@ -1,29 +1,32 @@
-.homepage{
-    display: flex;
-    justify-content: space-around;
-    margin: auto;
-    width: 75%;
-}
 
-img {
-    width: 100%;   
-   
-}
-.accueil{
-    margin: 10px;
-    width: 35%;
-    align-self: center;
-}
+    .homepage{
+        display: flex;
+        justify-content: space-around;
+        margin: auto;
+        width: 75%;
+    }
+    
+    img {
+        width: 100%;   
+       
+    }
+    .accueil{
+        margin: 10px;
+        width: 35%;
+        align-self: center;
+    }
+    
+    .session_page{
+        display: flex;
+        flex-wrap: wrap;
+        place-items: center;
+    }
+    
+    .post_list{
+        width: 50%;
+    }
+    
 
-.session_page{
-    display: flex;
-    flex-wrap: wrap;
-    place-items: center;
-}
-
-.post_list{
-    width: 50%;
-}
 
 
 
