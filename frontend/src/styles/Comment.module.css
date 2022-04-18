@@ -1,4 +1,4 @@
-
+@media all and  (min-width: 769px){
 /* style pour le POST */
 .post{
     width: 34%;
@@ -11,7 +11,7 @@
 }
 
 .post_body{
-    width: 65%;
+    width: 50%;
     text-align: center;    
     border: 2px black;
     margin: 50px auto;
@@ -55,6 +55,7 @@
 
     display: flex;
     flex-direction: column;
+    width: 50%;
     background-color: antiquewhite;
     
 }
@@ -77,5 +78,84 @@
     flex-direction: column;
     background-color: aquamarine;
 }
-
+}
+@media all and  (max-width: 768px){
+    .post{
+        width: 34%;
+        margin: auto;
+        border: solid;
+    }
+    
+    .post_info{
+        background-color: aquamarine;
+    }
+    
+    .post_body{
+        width: 65%;
+        text-align: center;    
+        border: 2px black;
+        margin: 50px auto;
+        padding: 10px;
+        box-shadow: 5px 0px 20px;
+        background-color: burlywood;
+        height: 200px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    
+    }
+    .post_body button{
+        width: fit-content;
+    }
+    .post_owner{
+        display: flex;
+        justify-content: space-around;
+    }
+    .post_header{
+        font-weight: bold;
+        font-size: x-large;
+    }
+    
+    /* style pour les commentaires */
+    .comment{
+        width: 40%;
+        text-align: center;    
+        border: 2px black;
+        margin: 50px auto;
+        padding: 10px;
+        box-shadow: 5px 0px 20px;
+        background-color: antiquewhite;
+        height: 200px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    
+    }
+    .new_comment{
+    
+        display: flex;
+        flex-direction: column;
+        background-color: antiquewhite;
+        
+    }
+    .new_comment button{
+        width: 25%;
+        align-self: center;
+    }
+    
+    .comment_react{
+        display: flex;
+        justify-content: space-around;
+    }
+    .comment_react button{
+        width: 33%;
+        
+    }
+    
+    .hidden_form{
+        display: flex;
+        flex-direction: column;
+        background-color: aquamarine;
+    }
+}
 

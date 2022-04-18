@@ -1,4 +1,34 @@
-
+@media all and  (max-width: 768px){
+    .homepage{
+        margin: auto;
+        width: 75%;    
+        text-align: -webkit-center;
+        justify-content: space-around;
+    }
+        
+    
+    img {
+        width: 100%;   
+       
+    }
+    .accueil{
+        margin: 10px;
+        width: 35%;
+        align-self: center;
+    }
+    
+    .session_page{
+        display: flex;
+        flex-wrap: wrap;
+        place-items: center;
+    }
+    
+    .post_list{
+        width: 50%;
+    }
+}
+    
+@media all and  (min-width: 769px){
     .homepage{
         display: flex;
         justify-content: space-around;
@@ -25,8 +55,7 @@
     .post_list{
         width: 50%;
     }
-    
-
+}
 
 
 
