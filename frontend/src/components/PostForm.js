@@ -10,8 +10,30 @@ function PostForm(props) {
 
     const [title, setTitle] = useState('');
     const [text, setText] = useState('');
+
+    const validate =()=>{
+     
+        if(!title.trim()){
+            setTitle("")
+            alert("Le champs Titre est vide")
+            return false
+        } 
+ 
+        if(!text.trim()){
+            setText("")
+            alert("La zone de texte est vide")
+            return false
+        } 
+        return true
+        
+    }
+
     const submit=(e)=>{ 
         e.preventDefault()
+
+        if(!validate()){
+            return;
+        }
         createPost(title, text)
         .then((res)=>{
             props.addPost(res.data.post)

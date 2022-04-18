@@ -25,6 +25,23 @@ function Comment() {
     const navigate =useNavigate()
     const {id} = useParams();
 
+    const validate =()=>{
+     
+        if(!title.trim()){
+            setTitle("")
+            alert("Le champs Titre est vide")
+            return false
+        } 
+ 
+        if(!text.trim()){
+            setText("")
+            alert("La zone de texte est vide")
+            return false
+        } 
+        return true
+        
+    }
+
     //AJOUTER UN COMMENTAIRE
     function addComment(comment){
         // console.log(comment);
@@ -48,6 +65,8 @@ function updateComment(text,id) {
     //MODIFIER UN POST
     function changePost(){
         setEdit(true);
+        setTitle(post.title);
+        setText(post.text);
     }
 
     function cancelModif() {
@@ -56,6 +75,11 @@ function updateComment(text,id) {
 
     function handleUpdate(e) {
         e.preventDefault()
+
+        if(!validate()){
+            return;
+        }
+
         updatePost(id, title, text)
         .then(()=>{
             setEdit(false)
@@ -78,7 +102,10 @@ function updateComment(text,id) {
         if (window.confirm('Voulez vous vraiment supprimer ce post ?') ==true) {
             // console.log('post supprimé');
             deletePost(id)
-            .then(()=>navigate('/'))
+            
+            .then(()=>          
+            { alert('Le post a été supprimé'); 
+            navigate('/')})
             .catch((error)=>console.log(error))
             
         } else {

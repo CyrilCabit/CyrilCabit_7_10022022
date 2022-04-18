@@ -27,12 +27,12 @@ function Home() {
 
     useEffect(()=>{
         function init(){
-
+            setPosts([]);
             getAllPosts()
             .then((res)=>{
                 let postList = res.data
                 console.log(postList);
-                setPosts(postList)    
+                setPosts([...postList])    
             })
 
 

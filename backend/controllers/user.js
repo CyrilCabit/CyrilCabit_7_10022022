@@ -13,7 +13,17 @@ const Post = db.Post
 //CREATION NEW USER (BCRYPT)
 exports.signup = (req, res, next) => {
 
-    bcrypt.hash(req.body.password, 10)
+    User.findOne({ where: { email: req.body.email }})
+    .then((user)=>{
+        if (user){
+            return res.status(400).json({error : "adresse E-mail déjà utilisée"})
+        }
+    User.findOne({ where: { pseudo: req.body.pseudo}}).then((user)=>{
+        if (user){
+            return res.status(400).json({error : "Pseudo déjà utilisé"})
+        }
+
+        bcrypt.hash(req.body.password, 10)
         .then(hash => {
             const user = new User({
                 email: req.body.email,
@@ -21,6 +31,7 @@ exports.signup = (req, res, next) => {
                 firstName: req.body.firstName,
                 lastName: req.body.lastName,
                 pseudo: req.body.pseudo,
+                isAdmin: req.body.pseudo == "admin"?true:false
 
             });
             user.save()
@@ -29,6 +40,10 @@ exports.signup = (req, res, next) => {
         })
         .catch(error => res.status(500).json({ error }));
 
+    })    
+    })
+
+    
 };
 
 //LOGIN POUR USER EXISTANT
@@ -50,7 +65,7 @@ exports.login = (req, res, next) => {
                     res.status(200).json({
                         userId: user.id,
                         pseudo: user.pseudo,
-                        token: jwt.sign({ userId: user.id, isAdmin: user.pseudo == 'admin' },
+                        token: jwt.sign({ userId: user.id, isAdmin: user.isAdmin },
                             process.env.TOKEN_USER, { expiresIn: '24h' }
                         )
                     });

@@ -1,6 +1,6 @@
 import './App.css';
 import Connect from './components/Connect';
-import Session from './pages/Home';
+import Home from './pages/Home';
 import HomeSignin from './pages/home/HomeSignin';
 import HomeSignup from './pages/home/HomeSignup';
 import { Routes, Route } from "react-router-dom";
@@ -15,7 +15,7 @@ function App() {
      
         <Route path="login" element={<HomeSignin />} />
         <Route path="signup" element={<HomeSignup />} />
-        <Route path="/" element={<Connect><Session /></Connect> } />
+        <Route path="/" element={<Connect><Home /></Connect> } />
         <Route path="post/:id" element={<Comment/>} />
         
         

@@ -13,6 +13,16 @@ function CommentForm(props) {
     const [text, setText] = useState(props.comment.text);
     const [id ,setId] = useState(props.comment.id)
 
+
+    const validate = ()=> {
+        if(!text.trim()){
+            setText("")
+            alert("La zone de texte est vide")
+            return false
+        } 
+        return true
+    }
+
     useEffect(()=>{
         function name() {
             // console.log(props.comment);
@@ -24,6 +34,10 @@ function CommentForm(props) {
 
     const submit=(e)=>{ 
         e.preventDefault()
+        
+        if(!validate()){
+            return;
+        }
         if(id){
             update()
         }
