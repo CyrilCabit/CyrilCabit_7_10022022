@@ -60,8 +60,18 @@
     
 }
 .new_comment button{
-    width: 25%;
-    align-self: center;
+    
+    width: 50%;
+    margin: 10px auto 10px auto;
+    padding: 20px;
+    border-radius: 40px;
+    align-items: center;
+    font-size: larger;
+    font-weight: bold;
+    color: #fff;
+    background-color: rgb(253, 45, 1);
+    border-style: none;
+    margin-bottom: 40px;
 }
 
 .comment_react{
@@ -76,7 +86,9 @@
 .hidden_form{
     display: flex;
     flex-direction: column;
+    width: 50%;
     background-color: aquamarine;
+    margin-bottom: 40px;
 }
 }
 @media all and  (max-width: 768px){
@@ -135,6 +147,7 @@
     
         display: flex;
         flex-direction: column;
+        width: 70%;
         background-color: antiquewhite;
         
     }
@@ -155,7 +168,9 @@
     .hidden_form{
         display: flex;
         flex-direction: column;
+        width: 70%;
         background-color: aquamarine;
+        margin-bottom: 40px;
     }
 }
 

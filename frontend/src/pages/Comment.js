@@ -163,8 +163,7 @@ function updateComment(text,id) {
             
             
         </div>
-            <CommentForm addComment={addComment} updateComment = {updateComment} postId= {post.id} comment={modifComment} />
-
+            
             {/* FORMULAIRE DE MODIFICATION D'UN POST */}
             {edit?<div>
                 <form className={style.hidden_form} onSubmit={handleUpdate} >
@@ -175,7 +174,8 @@ function updateComment(text,id) {
             <button onClick={cancelModif}type='button'>ANNULER</button>
             </form>
             </div>:<></>}
-            
+            <CommentForm addComment={addComment} updateComment = {updateComment} postId= {post.id} comment={modifComment} />
+
             <CommentList pseudo = {post.User.pseudo} comments={comments} change = {changeComment} delete = {deleteComment} />
         </div>:<></>}
         

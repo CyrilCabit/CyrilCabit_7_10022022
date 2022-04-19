@@ -7,6 +7,8 @@ import { isOwner } from "../services/owner";
 
 function CommentView(props) {
 
+
+    const formatDate = props.date;
     function changeComment() {
         props.change(props.id)
         
@@ -27,7 +29,7 @@ function CommentView(props) {
         <div className={style.comment} >
             <div className={style.comment_info}>
                 <h1>{props.pseudo}</h1>
-                <p>{props.date}</p>                
+                <p>Le {(new Date(formatDate)).toLocaleDateString("fr")} à {(new Date(formatDate)).toLocaleTimeString("fr")}</p>                
             </div>
             <div className={style.comment_body}>            
                 <p>{props.text}</p>                   

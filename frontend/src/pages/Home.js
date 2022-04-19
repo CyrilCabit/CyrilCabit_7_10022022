@@ -53,7 +53,10 @@ function Home() {
     
      <div className={style.session_page}>
         <PostForm addPost={addPost} />
-        <PostList posts={posts} />
+        <div className={style.list}>
+            <h2>Liste des Publications</h2>
+            <PostList posts={posts} />
+        </div>
     </div>
         
 

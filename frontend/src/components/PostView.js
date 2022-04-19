@@ -5,18 +5,18 @@ import { Link } from "react-router-dom";
 
 function PostView(props) {
 
-    
+    const formatDate = props.date;
 
     return (
         <div className={style.post} >
             <div className={style.post_info}>
 
-                <h1>{props.pseudo}</h1>
-                <p>{props.date}</p>
+                <h2>{props.pseudo}</h2>
+                <p>Le {(new Date(formatDate)).toLocaleDateString("fr")} à {(new Date(formatDate)).toLocaleTimeString("fr")}</p>
                 
             </div>
             <div className={style.post_body}>
-                <h2>{props.title}</h2>
+                <h3>{props.title}</h3>
                 <p>{props.text}</p>   
                 
             </div>
