@@ -27,5 +27,5 @@ tapez en ligne de commande nodemon
 
 ### Compte Administrateur
 Possibilité de créer un compte admin.
-Créer un compte avec comme pseudo obligatoire **"pseudo"** .
+Créer un compte avec comme pseudo obligatoire **"admin"** .
 
